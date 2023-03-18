@@ -2,7 +2,6 @@
 myDatas = []
 patProbabDic = {}
 eachData = []
-diseaseIncidence = []
 
 #create function
 def createFunc(textData):
@@ -29,6 +28,7 @@ def probabilityFunc(textData):
     else:
         for i in range(len(myDatas)):
             if myDatas[i][0] == otherKeys:
+                diseaseIncidence = []
                 diseaseIncidence = myDatas[i][3].split("/")
                 diagnosisAccuracy = myDatas[i][1]
                 patProbabDic[myDatas[i][0]] = 100 * (int(diseaseIncidence[0]) / ((int(diseaseIncidence[1]) * (100 - (float(diagnosisAccuracy)*100)) / 100) + int(diseaseIncidence[0])))
@@ -41,6 +41,7 @@ def recommendationFunc(textData):
         # I need to calculate the probabilities the person who is not applied the probability function before(it is not clean code, check it later)
         for i in range(len(myDatas)):
             if myDatas[i][0] == otherKeys:
+                diseaseIncidence = []
                 diseaseIncidence = myDatas[i][3].split("/")
                 diagnosisAccuracy = myDatas[i][1]
                 patProbabDic[myDatas[i][0]] = 100 * (int(diseaseIncidence[0]) / ((int(diseaseIncidence[1]) * (100 - (float(diagnosisAccuracy)*100)) / 100) + int(diseaseIncidence[0])))
